@@ -1,0 +1,14 @@
+{
+  "global_duration_seconds": 15,
+  "fallback_image": "media/fallback.png",
+  "playlist_file": "playlist.json",
+  "media_dir": "media",
+  "admin_host": "0.0.0.0",
+  "admin_port": 8080,
+  "allowed_image_extensions": [".png", ".jpg", ".jpeg", ".gif", ".webp"],
+  "url_load_timeout_seconds": 10,
+  "screen": {
+    "rotation": 270,
+    "image_scaling": "fill"
+  }
+}

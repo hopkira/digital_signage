@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel narrow">
+  <h1>Sign in</h1>
+  <p class="muted">Enter the local administrator password.</p>
+  <form method="post" class="form-stack">
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" autocomplete="current-password" required autofocus>
+    <button class="button" type="submit">Sign in</button>
+  </form>
+</section>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div>
+    <h1>Playlist</h1>
+    <p class="muted">Global duration: {{ duration }} seconds. Fallback image: <code>{{ fallback }}</code></p>
+  </div>
+</section>
+
+<section class="grid">
+  <div class="panel">
+    <h2>Upload image</h2>
+    <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data" class="form-stack">
+      <label for="image">Image file</label>
+      <input id="image" name="image" type="file" accept="image/*" required>
+      <button class="button" type="submit">Upload and add</button>
+    </form>
+  </div>
+
+  <div class="panel">
+    <h2>Add URL</h2>
+    <form action="{{ url_for('add_url') }}" method="post" class="form-stack">
+      <label for="url">URL</label>
+      <input id="url" name="url" type="url" placeholder="https://example.com/status" required>
+      <button class="button" type="submit">Add URL</button>
+    </form>
+  </div>
+</section>
+
+<section class="panel">
+  <h2>Current sequence</h2>
+  {% if playlist %}
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Type</th>
+          <th>Source</th>
+          <th>Controls</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in playlist %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td><span class="tag">{{ item.type }}</span></td>
+          <td class="source"><code>{{ item.source }}</code></td>
+          <td class="actions">
+            <form action="{{ url_for('move', index=loop.index0, direction='up') }}" method="post"><button class="button button-secondary" type="submit" {% if loop.first %}disabled{% endif %}>Up</button></form>
+            <form action="{{ url_for('move', index=loop.index0, direction='down') }}" method="post"><button class="button button-secondary" type="submit" {% if loop.last %}disabled{% endif %}>Down</button></form>
+            <form action="{{ url_for('delete', index=loop.index0) }}" method="post" onsubmit="return confirm('Remove this item from the playlist?');"><button class="button button-danger" type="submit">Delete</button></form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+    <p class="muted">The playlist is empty. The fallback image will be shown.</p>
+  {% endif %}
+</section>
+{% endblock %}

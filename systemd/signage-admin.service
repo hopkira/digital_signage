@@ -1,0 +1,17 @@
+[Unit]
+Description=Digital Signage Admin Web App
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/signage
+Environment=SIGNAGE_ADMIN_PASSWORD=change-me
+Environment=SIGNAGE_FLASK_SECRET=change-me-too
+ExecStart=/home/pi/signage/venv/bin/python /home/pi/signage/admin.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

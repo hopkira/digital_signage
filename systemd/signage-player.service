@@ -1,0 +1,17 @@
+[Unit]
+Description=Digital Signage Full Screen Player
+After=graphical.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/signage
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/pi/.Xauthority
+ExecStart=/home/pi/signage/venv/bin/python /home/pi/signage/player.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=graphical.target
