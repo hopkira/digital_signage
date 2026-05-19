@@ -19,7 +19,7 @@ The intended display is HDMI, rotated 270 degrees at OS/display level.
 ## Project structure
 
 ```text
-signage/
+digital_signage/
 ├── admin.py
 ├── player.py
 ├── config.json
