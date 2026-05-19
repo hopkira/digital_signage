@@ -1,5 +1,2 @@
 Flask==3.0.3
-PyQt5==5.15.11
-PyQtWebEngine==5.15.7
-Pillow==10.4.0
-Werkzeug==3.0.4
+Werkzeug==3.0.3

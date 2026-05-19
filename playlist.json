@@ -1,6 +1,18 @@
 [
   {
     "type": "image",
-    "source": "media/fallback.png"
+    "source": "media/doctoranddog.png"
+  },
+  {
+    "type": "image",
+    "source": "media/to_victory.png"
+  },
+  {
+    "type": "url",
+    "source": "https://engineeringfusionltd.com/"
+  },
+  {
+    "type": "image",
+    "source": "media/TBtitles.png"
   }
 ]
