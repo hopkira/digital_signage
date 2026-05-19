@@ -156,8 +156,7 @@ http://<pi-ip-address>:8080
 Start the player from the Pi desktop session:
 
 ```bash
-cd /home/pi/signage
-source venv/bin/activate
+cd /home/pi/digital_signage
 python player.py
 ```
 
@@ -176,7 +175,7 @@ Change these values as needed:
 
 ```ini
 User=pi
-WorkingDirectory=/home/pi/signage
+WorkingDirectory=/home/pi/digital_signage
 Environment=SIGNAGE_ADMIN_PASSWORD=change-me
 Environment=SIGNAGE_FLASK_SECRET=change-me-too
 ```
@@ -266,7 +265,7 @@ Example:
 ## 11. Updating from GitHub
 
 ```bash
-cd /home/pi/signage
+cd /home/pi/digital_signage
 git pull
 source venv/bin/activate
 pip install -r requirements.txt
