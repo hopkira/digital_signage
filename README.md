@@ -63,8 +63,13 @@ sudo apt install -y \
   libxdamage1 \
   libxrandr2 \
   libxtst6 \
-  libasound2
+  libasound2 \
+  python3-flask \
+  python3-pyqt5 \
+  python3-pyqt5.qtwebengine \
+  python3-pil
 ```
+
 
 ## 2. Rotate the HDMI display
 
@@ -94,8 +99,8 @@ Replace the URL with your repository:
 
 ```bash
 cd /home/pi
-git clone https://github.com/YOUR-ORG/YOUR-REPO.git signage
-cd signage
+git clone https://github.com/hopkira/digital_signage
+cd digital_signage
 ```
 
 ## 4. Create the Python virtual environment
