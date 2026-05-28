@@ -168,7 +168,50 @@ Edit the service files before installing them:
 
 ```bash
 nano systemd/signage-admin.service
+```
+
+```ini
+[Unit]
+Description=Digital Signage Admin Server
+After=network.target
+
+[Service]
+Type=simple
+User=hopkira
+WorkingDirectory=/home/pi/GitHub/digital_signage
+Environment="PATH=/home/pi/GitHub/digital_signage/venv/bin"
+ExecStart=/home/pi/GitHub/digital_signage/venv/bin/python admin.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
 nano systemd/signage-player.service
+```
+
+```ini
+[Unit]
+Description=Digital Signage Player
+After=graphical.target network.target
+
+[Service]
+Type=simple
+User=hopkira
+WorkingDirectory=/home/hopkira/GitHub/digital_signage
+Environment="DISPLAY=:0"
+Environment="XAUTHORITY=/home/hopkira/.Xauthority"
+Environment="PATH=/home/hopkira/GitHub/digital_signage/venv/bin"
+
+ExecStart=/home/hopkira/GitHub/digital_signage/venv/bin/python player.py
+
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=graphical.target
 ```
 
 Change these values as needed:
