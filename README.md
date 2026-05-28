@@ -177,7 +177,7 @@ After=network.target
 
 [Service]
 Type=simple
-User=hopkira
+User=pi
 WorkingDirectory=/home/pi/GitHub/digital_signage
 Environment="PATH=/home/pi/GitHub/digital_signage/venv/bin"
 ExecStart=/home/pi/GitHub/digital_signage/venv/bin/python admin.py
@@ -199,13 +199,13 @@ After=graphical.target network.target
 
 [Service]
 Type=simple
-User=hopkira
-WorkingDirectory=/home/hopkira/GitHub/digital_signage
+User=pi
+WorkingDirectory=/home/pi/GitHub/digital_signage
 Environment="DISPLAY=:0"
-Environment="XAUTHORITY=/home/hopkira/.Xauthority"
-Environment="PATH=/home/hopkira/GitHub/digital_signage/venv/bin"
+Environment="XAUTHORITY=/home/pi/.Xauthority"
+Environment="PATH=/home/pi/GitHub/digital_signage/venv/bin"
 
-ExecStart=/home/hopkira/GitHub/digital_signage/venv/bin/python player.py
+ExecStart=/home/pi/GitHub/digital_signage/venv/bin/python player.py
 
 Restart=always
 RestartSec=5
